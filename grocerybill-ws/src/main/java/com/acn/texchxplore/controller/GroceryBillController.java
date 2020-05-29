@@ -3,12 +3,12 @@ package com.acn.texchxplore.controller;
 import com.acn.texchxplore.domain.GroceryBill;
 import com.acn.texchxplore.service.GroceryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
-@Controller
+@RestController
 @RequestMapping("/item/bill")
 public class GroceryBillController {
 
