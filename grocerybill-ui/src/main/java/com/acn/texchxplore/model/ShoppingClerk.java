@@ -3,9 +3,6 @@ package com.acn.texchxplore.model;
 
 public class ShoppingClerk {
 
-
-
-
 	public ShoppingClerk() {
 	}
 
