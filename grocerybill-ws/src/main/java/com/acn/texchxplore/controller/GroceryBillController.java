@@ -1,33 +1,27 @@
 package com.acn.texchxplore.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.acn.texchxplore.domain.GroceryBill;
-import com.acn.texchxplore.entity.ShoppingClerk;
-import com.acn.texchxplore.impl.DiscountedBill;
-import com.acn.texchxplore.repository.ItemRepository;
+import com.acn.texchxplore.service.GroceryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
+@Controller
+@RequestMapping("/item/bill")
 public class GroceryBillController {
 
-	public GroceryBillController() {
-		shoppingClerk = new ShoppingClerk("TechXplore");
-	}
+    @Autowired
+    private GroceryService service;
 
-	@Autowired
-	private ItemRepository itemRepo;
+    @GetMapping("/discounted")
+    public GroceryBill getTotalDiscountedBill() {
+        return service.getTotalDiscountedBill();
+    }
 
-	private ShoppingClerk shoppingClerk;
-
-
-
-
-	public GroceryBill getTotalDiscountedBill() {
-
-		GroceryBill grocery = new DiscountedBill(shoppingClerk);
-		grocery.setItemList(itemRepo.findAll());
-
-		return grocery;
-
-	}
+    @GetMapping("/regular")
+    public GroceryBill getTotalRegularbill() {
+        return service.getTotalRegularBill();
+    }
 }

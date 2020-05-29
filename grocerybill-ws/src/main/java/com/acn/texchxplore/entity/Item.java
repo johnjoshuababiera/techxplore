@@ -15,7 +15,7 @@ public class Item {
 
 	private double price;
 
-	private boolean isDiscounted;
+	private boolean discounted;
 
 	private double discountPercentage;
 
@@ -31,11 +31,11 @@ public class Item {
 
 	}
 
-	public Item(String name, double price, boolean isDiscounted, double discountPercentage) {
+	public Item(String name, double price, boolean discounted, double discountPercentage) {
 
 		this.name = name;
 		this.price = price;
-		this.isDiscounted = isDiscounted;
+		this.discounted = discounted;
 		this.discountPercentage = discountPercentage;
 
 	}
@@ -61,13 +61,7 @@ public class Item {
 	}
 
 	public boolean isDiscounted() {
-		return isDiscounted;
-
-	}
-
-	public void setDiscounted(boolean isDiscounted) {
-		this.isDiscounted = isDiscounted;
-
+		return discounted;
 	}
 
 	public double getDiscountPercentage() {
