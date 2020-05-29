@@ -43,6 +43,11 @@ class GroceryServiceIntegrationTest {
         repository.saveAll(Arrays.asList(item1,item2,item3));
         GroceryBill groceryBill = groceryService.getTotalDiscountedBill();
         Assert.assertEquals(90d, groceryBill.getTotalBill(), DELTA);
+        Assert.assertNotNull( groceryBill.getItemList());
+        Assert.assertEquals(1, groceryBill.getItemList().size());
+        Assert.assertNotNull( groceryBill.getClerk());
+        Assert.assertEquals("TechXplore", groceryBill.getClerk().getName());
+
     }
 
     @Test
@@ -54,6 +59,10 @@ class GroceryServiceIntegrationTest {
         repository.saveAll(Arrays.asList(item1,item2, item3));
         GroceryBill groceryBill = groceryService.getTotalRegularBill();
         Assert.assertEquals(55d, groceryBill.getTotalBill(), DELTA);
+        Assert.assertNotNull( groceryBill.getItemList());
+        Assert.assertEquals(2, groceryBill.getItemList().size());
+        Assert.assertNotNull( groceryBill.getClerk());
+        Assert.assertEquals("TechXplore", groceryBill.getClerk().getName());
 
     }
 }
